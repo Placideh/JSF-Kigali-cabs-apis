@@ -58,13 +58,8 @@ public class UserApi {
     @PUT
     @Path("user")
     public Response updateUser(User user){
-	if(UserDao.countEmails(user.getEmail())>0&&UserDao.countUsernames(user.getUsername())>0){
-	   UserDao.updateUser(user);
+	 UserDao.updateUser(user);
 	return Response.status(Response.Status.OK).build();
-	}else{
-	    UserDao.registerUser(user);
-	}
-	return Response.status(Response.Status.NOT_FOUND).build();
     }
     @DELETE
     @Path("{username}")
@@ -101,10 +96,10 @@ public class UserApi {
     public User getSingleUser(@PathParam("username") String username,@PathParam("email") String email){
 	return UserDao.findByUsernameAndEmail(username, email);
     }
-    @POST
+    @GET
     @Path("login/{username}/{password}")
-    public Response getLogIn(@PathParam("username") String username,@PathParam("password") String password){
-	return Response.status(Response.Status.OK).build();
+    public User getLogIn(@PathParam("username") String username,@PathParam("password") String password){
+	return UserDao.loginByUsernameAndPassword(username, password);
     }
 
     /**

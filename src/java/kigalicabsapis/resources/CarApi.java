@@ -76,7 +76,7 @@ public class CarApi {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateCar(Car car) {
-	Car newCar = CarDao.findByPlateNoAndStatus(car.getPlateNo(), car.getStatus());
+	Car newCar = CarDao.findByPlateNo(car.getPlateNo());
 	if(newCar!=null){
 	    newCar.setBookedTime(car.getBookedTime());
 	    newCar.setBookingId(car.getBookingId());
