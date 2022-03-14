@@ -34,7 +34,7 @@ __Car Owner Operations__
 
 1. Open This Project in Your IDE 
     
-    1. Inside Your Project search for resources folder enter into It
+    1. Inside Your Project 
     1. you will have to change some of the lines like what database you will be using 
     be it : 
     
